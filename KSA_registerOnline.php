@@ -32,3 +32,17 @@ function assets() {
 	wp_enqueue_script('sms_script');
 }
 add_action( 'init','assets');
+
+
+
+add_action("admin_menu", "cspd_imdb_options_submenu");
+function cspd_imdb_options_submenu() {
+    add_submenu_page('options-general.php', 'KSA Register Online', 'Register Online', 'administrator', 'KSA-Register-Online', 'registerOnline' );
+}
+
+function registerOnline() {
+    if (sizeof($_POST)>0) {
+        var_dump($_POST);
+    }
+    require 'settingForm.php';
+}
