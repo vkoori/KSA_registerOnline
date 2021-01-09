@@ -5,30 +5,16 @@
 		<p>جهت اتصال افزونه و وب سرویس، لطفا اطلاعات پنل پیامکی خود را ثبت کنید.</p>
 		<table class="form-table" role="presentation">
 			<tbody>
-				<tr>
-					<th scope="row">
-						<label for="KSA_registerOnline_Username">Username</label>
-					</th>
-					<td>
-						<input name="KSA_registerOnline_Username" type="text" id="KSA_registerOnline_Username" value="">
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="KSA_registerOnline_Password">Password</label>
-					</th>
-					<td>
-						<input name="KSA_registerOnline_Password" type="password" id="KSA_registerOnline_Password" value="">
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="KSA_registerOnline_PackageId">PackageId</label>
-					</th>
-					<td>
-						<input name="KSA_registerOnline_PackageId" type="number" id="KSA_registerOnline_PackageId" value="">
-					</td>
-				</tr>
+				<?php foreach ($setting as $s): ?>
+					<tr>
+						<th scope="row">
+							<label for="<?php echo $s->option_name; ?>"><?php echo str_replace('KSA_registerOnline_', '', $s->option_name); ?></label>
+						</th>
+						<td>
+							<input name="<?php echo $s->option_name; ?>" type="text" id="<?php echo $s->option_name; ?>" value="<?php echo $s->option_value; ?>">
+						</td>
+					</tr>
+				<?php endforeach ?>
 			</tbody>
 		</table>
 		<p class="submit"><input type="submit" class="button button-primary" value="ذخیره سازی"></p>
